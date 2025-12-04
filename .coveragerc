@@ -1,0 +1,15 @@
+[report]
+# Omit specific files or patterns
+omit =
+    */__init__.py
+    */scripts/*
+exclude_lines =
+    # Exclude main execution blocks
+    if __name__ == .__main__.:
+    # Exclude main() functions
+    def main\(.*\):
+    # Exclude NotImplementedError
+    raise NotImplementedError
+
+[html]
+directory = htmlcov

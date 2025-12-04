@@ -10,7 +10,7 @@ Round the result to two decimal places.
 MILE_TO_KM_RATIO = 1.60934
 
 
-def convert_to_km(miles: int):
+def convert_to_km(miles):
     km = miles * MILE_TO_KM_RATIO
     return round(km, 2)
 
