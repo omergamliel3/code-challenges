@@ -21,11 +21,11 @@ def convert_list_item(markdown_string: str) -> str:
     if not isinstance(markdown_string, str):
         return INVALID_FORMAT_MSG
 
-    line = markdown_string.strip()
-    if "." not in line:
+    if "." not in markdown_string:
         return INVALID_FORMAT_MSG
 
-    number_part, _, text_part = line.partition(".")
+    number_part, _, text_part = markdown_string.partition(".")
+    number_part = number_part.strip()
 
     if not (number_part.isdigit() and int(number_part) > 0):
         return INVALID_FORMAT_MSG
