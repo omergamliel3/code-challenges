@@ -33,8 +33,8 @@ python -m unittest discover
 
 To generate coverage report:
 
+Grant script permissions
 ```bash
-# grant script permissions
 chmod +x scripts/generate_coverage.sh
 ```
 
