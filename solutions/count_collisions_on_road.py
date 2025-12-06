@@ -15,7 +15,7 @@ Return the total number of collisions that will happen on the road.
 """
 
 
-class Solution:
+class CountCollisions:
     def countCollisions(self, directions: str) -> int:
         # skip left-moving cars at the start (they escape freely)
         i = 0
@@ -37,11 +37,11 @@ class Solution:
 
 
 def main():
-    solution = Solution()
-    print(solution.countCollisions("RLRSLL"))
-    print(solution.countCollisions("LLLRRR"))
-    print(solution.countCollisions("RRRRL"))
-    print(solution.countCollisions("LLRR"))
+    counter = CountCollisions()
+    print(counter.countCollisions("RLRSLL"))
+    print(counter.countCollisions("LLLRRR"))
+    print(counter.countCollisions("RRRRL"))
+    print(counter.countCollisions("LLRR"))
 
 
 if __name__ == "__main__":
