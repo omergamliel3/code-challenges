@@ -4,7 +4,7 @@ Short solutions for selected FreeCodeCamp daily challenges and LeetCode problems
 
 ## Project Overview
 
-This repository contains solutions for code challenges their unit tests. It's intended for practicing problem-solving and verifying solutions with `unittest`.
+This repository contains solutions for code challenges and their unit tests. It's intended for practicing problem-solving and verifying solutions.
 
 ## Repository Structure
 
@@ -31,12 +31,18 @@ Run the test suite with `unittest` from the repository root:
 python -m unittest discover
 ```
 
-To run tests with coverage and generate coverage report:
+To generate coverage report:
 
 ```bash
-chmod +x scripts/generate_coverage.sh # first time
+# grant script permissions
+chmod +x scripts/generate_coverage.sh
+```
+
+```bash
 scripts/generate_coverage.sh
 ```
+
+The script will print output in the terminal and open UI coverage report in default browser
 
 ## Contributing
 
