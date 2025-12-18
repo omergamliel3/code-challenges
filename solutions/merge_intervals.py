@@ -16,22 +16,15 @@ Interval = list[int]
 
 def merge(intervals: list[Interval]) -> list[Interval]:
     merged_intervals: list[Interval] = []
+    intervals.sort(key=lambda x: x[0])
 
     while len(intervals) > 0:
-        min_index = 0
-        min_start = intervals[0][0]
-        for i in range(1, len(intervals)):
-            if intervals[i][0] < min_start:
-               min_start = intervals[i][0]
-               min_index = i
-            
-        current = intervals[min_index]
-        del intervals[min_index]
+        current = intervals[0]
+        del intervals[0]
 
-        found_overlap = True
-        while found_overlap:
+        while True:
             found_overlap = False
-            
+
             # search for overlapc
             for i in range(len(intervals)):
                 is_overlap = intervals[i][0] <= current[0] <= intervals[i][1] \
@@ -42,17 +35,43 @@ def merge(intervals: list[Interval]) -> list[Interval]:
                     # update current merged interval
                     current[0] = min(current[0], intervals[i][0])
                     current[1] = max(current[1], intervals[i][1])
-                    
+
                     # remove interval from the list
                     del intervals[i]
+
+                    # exit loop
                     found_overlap = True
-                    
-                    # exit loop 
                     break
-        
+
+            if not found_overlap:
+                break
+
         merged_intervals.append(current)
 
     return merged_intervals
+
+
+def merge_optimal(intervals: list[Interval]) -> list[Interval]:
+    if not intervals:
+        return []
+
+    # Step 1: sort intervals by start
+    intervals.sort(key=lambda x: x[0])
+
+    merged = [intervals[0]]
+
+    # Step 2: merge overlapping intervals
+    for start, end in intervals[1:]:
+        last_end = merged[-1][1]
+
+        if start <= last_end:
+            # overlap → merge
+            merged[-1][1] = max(last_end, end)
+        else:
+            # no overlap → add new interval
+            merged.append([start, end])
+
+    return merged
 
 
 def main():
