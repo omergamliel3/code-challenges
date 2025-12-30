@@ -23,6 +23,23 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Running Linter
+
+
+Grant script permissions
+
+```bash
+chmod +x scripts/run_lint.sh
+```
+
+Run the linter (We are using Flake8)
+
+```bash
+scripts/run_lint.sh
+```
+
+The script will report errors, warnings and style issues in the terminal including information.
+
 ## Running Tests
 
 Run the test suite with `unittest` from the repository root:
