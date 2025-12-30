@@ -23,7 +23,7 @@ Return the simplified canonical path.
 
 def simplify_path(path: str) -> str:
     path_splitted = [p for p in path.split("/") if p]
-    
+
     dir_stack = []
     for p in path_splitted:
         if p == ".":
@@ -33,7 +33,7 @@ def simplify_path(path: str) -> str:
                 dir_stack.pop()
         else:
             dir_stack.append(p)
-    
+
     simplified_path = "/" + "/".join(dir_stack)
     return simplified_path
 
