@@ -28,15 +28,27 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### ❕ IMPORTANT — Activate Virtual Environment
+
+This project **requires the virtual environment to be active for every development action**.
+
+Always run:
+
+```bash
+source .venv/bin/activate
+```
+
 ## 📦 Managing Dependencies
 
 Install or remove a dependency
+
 ```bash
 pip install <package_name>
 pip uninstall <package_name>
 ```
 
 Update dependencies
+
 ```bash
 # update specific package
 pip install --upgrade <package_name>
@@ -45,12 +57,14 @@ pip install --upgrade -r requirements.txt
 ```
 
 Freeze current environment
+
 ```bash
 # Save all installed packages and versions to requirements.txt
 python -m pip freeze > requirements.txt
 ```
 
 ### Make scripts executable (one-time)
+
 ```bash
 chmod +x scripts/run_lint.sh
 chmod +x scripts/generate_coverage.sh
@@ -72,6 +86,12 @@ Run the test suite with `unittest` from the repository root:
 
 ```bash
 python -m unittest discover
+```
+
+Run specific test file
+
+```bash
+python -m unittest tests.test_reverse_linked_list
 ```
 
 To generate coverage report:
