@@ -8,15 +8,16 @@ You may assume that each input would have exactly one solution, and you may not 
 You can return the answer in any order.
 """
 
+
 def two_sum(nums: list[int], target: int) -> list[int]:
     value_to_index: dict[int, int] = dict()
 
     for i, num in enumerate(nums):
         candidate = target - num
-        
+
         if candidate in value_to_index:
             return [i, value_to_index[candidate]]
-        
+
         value_to_index[num] = i
 
     return []

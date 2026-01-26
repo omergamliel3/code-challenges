@@ -35,7 +35,7 @@ class TestMultiplePushes(TestMinStack):
     ])
     def test_given_multiple_pushes_then_top_and_min_correct(
         self,
-        name: str,
+        _,
         values: list[int],
         expected_top: int,
         expected_min: int,
@@ -73,7 +73,7 @@ class TestBoundaryValues(TestMinStack):
         ("zero", 0),
     ])
     def test_given_boundary_value_then_operations_work(
-        self, name: str, value: int
+        self, _, value: int
     ) -> None:
         self.stack.push(value)
         self.assertEqual(value, self.stack.top())
